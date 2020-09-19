@@ -25,7 +25,7 @@ mongoClient.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifi
     workoutsCollection = database.collection('workouts');
 });
 
-var errorHandler = error => {
+var errorHandler = (res, error) => {
     if (error) {
         return res.status(500).send(error);
     }
@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 // Create a workout
 app.post("/workout", (req, res) => {
     workoutsCollection.insertMany(req.body, (error, result) => {
-        errorHandler(error);
+        errorHandler(res, error);
 
         res.send(result.result);
     });
