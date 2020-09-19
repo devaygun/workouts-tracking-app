@@ -25,23 +25,27 @@ mongoClient.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifi
     workoutsCollection = database.collection('workouts');
 });
 
+var errorHandler = error => {
+    if (error) {
+        return res.status(500).send(error);
+    }
+};
 
-app.use(function timeLog(req, res, next) {
+
+app.use((req, res, next) => { // Middleware to log request
     console.log(req.method + ' ' + req.url);
     next();
-  });
-  
-  app.get('/', (req, res) => {
-    res.json({"success": true, "message": "Welcome to the aygun-workouts app. Easily and effectively track your workouts!"});
+});
+
+app.get('/', (req, res) => {
+    res.json({ "success": true, "message": "Welcome to the aygun-workouts app. Easily and effectively track your workouts!" });
 });
 
 // Create a workout
-app.post("/workout", (req, res) => { 
+app.post("/workout", (req, res) => {
     workoutsCollection.insertMany(req.body, (error, result) => {
-        if (error) {
-            return res.status(500).send(error);
-        }
-        
+        errorHandler(error);
+
         res.send(result.result);
     });
 });
@@ -49,34 +53,27 @@ app.post("/workout", (req, res) => {
 // Retrieve all workouts
 app.get("/workouts", (req, res) => {
     workoutsCollection.find().toArray((error, results) => {
-        if (error) {
-            return res.status(500).send(error);
-        }
+        errorHandler(error);
 
         res.send(results);
     });
 });
 
 // Update a workout
-app.put("/workout", (req, res) => { 
-    workoutsCollection.updateOne({_id: new object.ObjectID(req.body.id)}, {$set: {"exercise": req.body.exercise, "weight": req.body.weight, "weight_measurement": req.body.weight_measurement, "sets": req.body.sets, "reps": req.body.reps, "rest": req.body.rest }}, {new: true}, (error, result) => {
-        if (error) {
-            return res.status(500).send(error);
-        }
-        
-        res.status(res.statusCode).json({"success": true, "message": "Successfully updated workout."});
+app.put("/workout", (req, res) => {
+    workoutsCollection.updateOne({ _id: new object.ObjectID(req.body.id) }, { $set: { "exercise": req.body.exercise, "weight": req.body.weight, "weight_measurement": req.body.weightMeasurement, "sets": req.body.sets, "reps": req.body.reps, "rest": req.body.rest } }, { new: true }, (error, result) => {
+        errorHandler(error);
+
+        res.json({ "success": true, "message": "Successfully updated workout." });
     });
 });
 
 // Delete a workout
-app.delete("/workout", (req, res) => { 
-    workoutsCollection.deleteOne({_id: new object.ObjectID(req.body.id)}, (error, result) => {
-        console.log(req.body.id)
-        if (error) {
-            return res.status(500).send(error);
-        }
+app.delete("/workout", (req, res) => {
+    workoutsCollection.deleteOne({ _id: new object.ObjectID(req.body.id) }, (error, result) => {
+        errorHandler(error);
 
-        res.status(res.statusCode).json({"success": true, "message": "Successfully deleted workout."});
+        res.json({ "success": true, "message": "Successfully deleted workout." });
     });
 });
 
