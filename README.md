@@ -1,9 +1,17 @@
-# workouts-tracking-app
+# Aygun - Workout Tracking
 
-A simple and effective workouts tracking app, built using the MEVN stack (Vue.js + Node.js + Express + MongoDB)
+## Introduction
+A simple and effective workouts tracking app, built <br>
+using the MEVN stack (Vue3, Node, Express & Mongo).
 
-## Setup
+Made for educational purposes and own consumption to<br>
+end inefficient usage of the iOS Notes app.
 
-Populate an `.env` file with values for DB_CONNECTION (full MongoDB connection URL) and DB_NAME.
+## Getting Started
 
-Feel free to use the Postman collection for interaction with the API.
+1. Start the API from the `/backend` directory, see the [README](backend/README.md)
+
+2. Start the frontend from the `/frontend` directory, see the [README](frontend/README.md)
+
+## Author
+Deniz Aygun [[LinkedIn](https://www.linkedin.com/in/denizaygun/)] [[Website](https://denizaygun.co.uk)]

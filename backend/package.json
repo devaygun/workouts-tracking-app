@@ -1,10 +1,10 @@
 {
-  "name": "aygun-workout-tracking",
+  "name": "aygun-workout-tracking-api",
   "version": "1.0.0",
-  "description": "A simple workout tracking app.",
-  "main": ".hyper.js",
+  "description": "A simple workout tracking API.",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon --exec babel-node app.js",
+    "start": "nodemon --exec babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Deniz Aygun",
