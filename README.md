@@ -1,11 +1,9 @@
 # Aygun - Workout Tracking
 
 ## Introduction
-A simple and effective workouts tracking app, built <br>
-using the MEVN stack (Vue3, Node, Express & Mongo).
+A simple and effective workouts tracking app, built using the MEVN stack (Mongo, Express, Vue3 & Node)
 
-Made for educational purposes and own consumption to<br>
-end inefficient usage of the iOS Notes app.
+Made for educational purposes and own consumption to end inefficient usage of the iOS Notes app.
 
 ## Getting Started
 

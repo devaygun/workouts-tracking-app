@@ -1,17 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Header />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Header,
+  },
+};
 </script>
 
 <style>
@@ -22,5 +23,23 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+html {
+  min-height: 100%;
+  background-image: url(assets/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+@media screen and (max-width: 600px) {
+  #app {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  html {
+    background-position: top left;
+  }
 }
 </style>
