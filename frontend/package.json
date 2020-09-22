@@ -6,6 +6,7 @@
     "url": "git@github.com:denizaygun/workouts-tracking-app.git"
   },
   "author": "Deniz Aygun",
+  "license": "ISC",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -13,6 +14,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "tailwindcss": "^1.8.10",
     "vue": "^3.0.0-0"
   },
   "devDependencies": {

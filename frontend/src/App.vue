@@ -1,23 +1,26 @@
 <template>
   <div>
     <Header />
+    <Body />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import Body from "./components/Body.vue";
 
 export default {
   name: "App",
   components: {
     Header,
+    Body,
   },
 };
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Indie Flower", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
