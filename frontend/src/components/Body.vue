@@ -1,12 +1,8 @@
 <template>
   <div>
     <div class="grid-container">
-      <div class="grid-item">Exercise</div>
-      <div class="grid-item">Weight</div>
-      <div class="grid-item">Sets</div>
-      <div class="grid-item">Reps</div>
-
       <div class="grid-item">
+        <div class="pb-3 text-white font-bold">Exercise</div>
         <input
           class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 w-full block appearance-none leading-normal"
           type="text"
@@ -14,6 +10,7 @@
         />
       </div>
       <div class="grid-item">
+        <div class="pb-3 text-white font-bold">Weight</div>
         <input
           class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full align-center appearance-none leading-normal"
           type="number"
@@ -21,6 +18,7 @@
         />
       </div>
       <div class="grid-item">
+        <div class="pb-3 text-white font-bold">Sets</div>
         <input
           class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full align-center appearance-none leading-normal"
           type="number"
@@ -28,11 +26,19 @@
         />
       </div>
       <div class="grid-item">
+        <div class="pb-3 text-white font-bold">Reps</div>
         <input
           class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full align-center appearance-none leading-normal"
           type="number"
           placeholder="3"
         />
+      </div>
+      <div class="grid-item flex">
+        <div class="m-auto">
+          <button
+            class="bg-indigo-800 border-yellow-300 px-8 py-1 text-white rounded-full hover:bg-indigo-900"
+          >Add</button>
+        </div>
       </div>
     </div>
   </div>
@@ -48,8 +54,7 @@ export default {
 <style scoped>
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
-  padding: 10px;
+  grid-template-columns: auto auto auto auto 10%;
   margin: 0 10vw;
 }
 .grid-item {
@@ -57,5 +62,15 @@ export default {
   padding: 20px;
   font-size: 30px;
   text-align: center;
+}
+@media (max-width: 768px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0 5vw;
+  }
+  .grid-item {
+    padding: 15px;
+  }
 }
 </style>
