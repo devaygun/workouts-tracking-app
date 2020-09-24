@@ -1,4 +1,4 @@
-# Aygun - Workout Tracking
+# Aygun - Workout Tracking Web App (WIP)
 
 ## Introduction
 A simple and effective workouts tracking app, built using the MEVN stack (Mongo, Express, Vue3 & Node) and TailwindCSS.
