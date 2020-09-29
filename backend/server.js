@@ -12,6 +12,13 @@ var app = express();
 app.use(bodyParser.json()); // Content-Type parsing for "application/json"
 app.use(bodyParser.urlencoded({ extended: true })); // Content-Type parsing for "application/x-www-form-urlencoded" 
 
+app.use((req, res, next) => { // Middleware for setting necessary CORS headers
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
+    next();
+});
+
 var database, workoutsCollection;
 
 mongoClient.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
